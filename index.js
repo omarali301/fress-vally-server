@@ -23,8 +23,6 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 client.connect(err => {
   console.log('connection err', err);
   const ShopCollection = client.db("freshValley").collection("products");
-  // perform actions on the collection object
-
 
   app.get('/shopProducts', (req, res) => {
   ShopCollection.find()
@@ -43,7 +41,7 @@ client.connect(err => {
     res.send(result.insertedCount > 0)
     })
   })
-  // client.close();
+
 });
 
 
